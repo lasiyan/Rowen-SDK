@@ -13,16 +13,15 @@ This will be updated infrequently, but we will keep it up to date.
 
 |          | Linux system (ARM 64)  | Windows system (AMD 64) |
 | :---:    | :---:                  | :---:                   |
-| System   | Jetpack 4.6            | Windows 11 Pro          |
+| System   | Jetpack 5.1.2          | Windows 11 Pro          |
 | Detail   | L4T (ubuntu 18.04 LTS) | 22H2. 22621.1848        |
-| Compiler | GCC 7.5.0             | MSVC 14.29.30133        |
-| (Version)| Ubuntu/Linaro 7.5.0-3ubuntu1~18.04 | Visual Studio 2019 professional |
-|
+| Compiler | GCC 13.1.0             | MSVC 14.29.30133        |
 
 ## How to use
 1. Compile source or download released version
 
 2. Include `rowen` library to your project
+
    > Recommend copying the data in ths `install` folder without `bin`
 
 3. Linking

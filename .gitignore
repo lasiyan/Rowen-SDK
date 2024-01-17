@@ -1,6 +1,15 @@
-install/
-build/
-.vscode/
-.cache
+# ignore all temp(.) folders
+/.*/
+.bak*/
+.back*/
+.test*
 .temp*
+test-*.hpp
+
+
+# ignore all files and folders in bin folder
+/install
+
+# ignore compiled files
+/build*/
 compile_commands.json
