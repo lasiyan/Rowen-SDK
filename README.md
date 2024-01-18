@@ -17,30 +17,50 @@ This will be updated infrequently, but we will keep it up to date.
 | Detail   | L4T (ubuntu 18.04 LTS) | 22H2. 22621.1848        |
 | Compiler | GCC 13.1.0             | MSVC 14.29.30133        |
 
-## How to use
-1. Compile source or download released version
+## How to use (from. Source)
 
-2. Include `rowen` library to your project
+1. Clone this repository to your desktop
 
-   > Recommend copying the data in ths `install` folder without `bin`
-
-3. Linking
-    ```
-    # Example. with CMakeLists.txt
-
-    target_include_directories(MyApp PUBLIC path/to/install/rowen/ include)
-    target_link_libraries(MyApp path/to/install/lib/librowen.a)
+    ```bash
+    $ git clone https://github.com/lasiyan/Rowen-SDK.git
+    $ cd Rowen-SDK
     ```
 
-    ```
-    # Example. with pragma comment
-    
-    // Set the include path in your project settings (if necessary)
-    #pragma comment lib ("/path/to/install/librowen.lib")
+2. (Optional) Choose your own configure options
+
+    - If you want to specify a compiler, use the `CMAKE_CXX_COMPILER` flag.
+    - If you want to install to a custom location, use `CMAKE_INSTALL_PREFIX`.
+
+3. Build and install the source
+
+    ```bash
+    mkdir build
+    cd build
+    cmake .. # See step 2
+    make -j4
+    make install
     ```
 
-4. Using
+    If you want to use your own compiler, set it like below
+
+    ```bash
+    # Alternatively, "cmake .."
+    cmake -DCMAKE_CXX_COMPILER=g++-9 ..
     ```
+
+4. Installing with the default path will create an `install` folder. Copy this `rowen-sdk` folder to your project.
+
+5. Then configure your project as follows
+
+    ```cmake
+    target_include_directories(MYAPP PUBLIC rowen-sdk/include)
+    target_link_directories(MYAPP PUBLIC rowen-sdk/lib)
+    target_link_libraries(MYAPP PUBLIC rowen_core rowen_utils)
+    ```
+
+6. Sample
+
+    ```cpp
     #include <rowen/core.hpp>
 
     int main()
@@ -48,10 +68,9 @@ This will be updated infrequently, but we will keep it up to date.
       auto str1 = rs::format("%s", "hello world !");
       logger.info("%s", str1.c_str());
 
-      auto str2  rs::Time::timeString();
-      logger.info("Current Time : %s", str2.c_str());
+      auto str2 = rs::Time::timeString();
+      logger.info("Current Time: %s", str2.c_str());
 
       return 0;
     }
     ```
-  
