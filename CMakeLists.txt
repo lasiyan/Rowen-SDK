@@ -26,4 +26,4 @@ add_subdirectory(sample/example-threadpool)
 add_subdirectory(sample/example-resource)
 
 # -- post install event ----------------------------------------------------------
-include(cmake/post-install.cmake)
+# include(cmake/post-install.cmake)
