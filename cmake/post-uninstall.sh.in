@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get execution directory
+DIR=./
+DEST=/usr
+
+#if DEST is not set or is "/", then exit
+if [ -z "$DEST" ] || [ "$DEST" = "/" ]; then
+    echo "DEST is not set or is \"/\", exiting"
+    exit 1
+fi
+
+# ----------------------------------------
+
+sudo rm -rf $DEST/include/@PREFIX@/
+sudo rm -rf $DEST/lib/lib@PREFIX@_*.so

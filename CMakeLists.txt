@@ -24,3 +24,6 @@ add_subdirectory(sample/example-time)
 add_subdirectory(sample/example-logger)
 add_subdirectory(sample/example-threadpool)
 add_subdirectory(sample/example-resource)
+
+# -- post install event ----------------------------------------------------------
+include(cmake/post-install.cmake)

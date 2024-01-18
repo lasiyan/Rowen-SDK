@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get execution directory
+DEST=./result
+DIR=$(cd $(dirname $0); pwd)
+
+# if DEST is not exist, then create
+if [ ! -d "$DEST" ]; then
+    mkdir $DEST
+fi
+
+# copy files
+sudo rsync -av $DIR/include/ $DEST/include/
+sudo rsync -av $DIR/lib/ $DEST/lib/
