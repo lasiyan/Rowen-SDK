@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <thread>
 
+#include "rowen/core/time.hpp"
 #include "rowen/utils/resource.hpp"
 
 void raiseCPUusage()
@@ -12,7 +13,7 @@ void raiseCPUusage()
     {
       sqrt(i);
     }
-    sleep(1);
+    rs::time::sleep(1s);
   }
 }
 
@@ -37,7 +38,7 @@ int main()
     // GPU
     printf("GPU Usage: %.1f%%\n", rs::utils::resource::totalGPUUsage());
 
-    sleep(1);
+    rs::time::sleep(1s);
   }
 
   th1.join();

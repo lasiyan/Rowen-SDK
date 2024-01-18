@@ -1,3 +1,5 @@
+#include <sstream>
+
 #include "rowen/core.hpp"
 #include "rowen/utils/threadPool.hpp"
 

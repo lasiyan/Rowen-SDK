@@ -1,6 +1,7 @@
 #include "rowen/core/time.hpp"
 
 #include <cmath>
+#include <iomanip>
 
 using std::chrono::duration_cast;
 using std::chrono::hours;
