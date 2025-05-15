@@ -1,0 +1,24 @@
+# ignore all temp files & folders
+/.*/
+.bak*
+.back*
+.test*
+.temp*
+test-*.hpp
+*.test
+*.temp
+*.tmp
+*.bak
+*.back
+*.backup
+
+# ignore all files and folders in bin folder
+/install
+/dist
+
+# ignore compiled files
+/build*/
+compile_commands.json
+
+# version file
+apps/version/version.h

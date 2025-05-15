@@ -1,0 +1,83 @@
+Generic:
+  ChannelID: 1
+  ChannelName: CH1
+  ContextTimeout: 1.000000
+
+GenericProperties:
+  PowerPort: -1
+  PowerController: ""
+  CameraDirection: -1
+  CameraImaging: 0
+
+Grabber:
+  CameraIP: 192.168.0.180
+  CameraPort: 554
+  CameraID: root
+  CameraPW: root
+  CameraURI: video1
+  HardwareDecoding: 1
+  StaticFrameRate: 0
+
+  External:
+    Enable: 0
+    Synchronize: 1
+    ReadTimeout: 3.000000
+
+  FileSource:
+    Enable: 0
+    Location: ""
+    Framerate: 15
+    StartPos: 0
+
+  Properties:
+    OpenTryInterval: 10.000000
+    MaxReadAttempt: 3
+
+Collector:
+  ContextWaitTimeout: 1.000000
+  FirstContextWaitTimeout: 5.000000
+  ErrorFrameFrameRate: 10
+
+Recoder:
+  Enable: 0
+  RecordingOriginal: 0
+  PrevRecordingTime: 5
+  PostRecordingTime: 5
+
+Viewer:
+  Encoder: Auto
+  LimitFPS: 0
+
+ViewerRTC:
+  Enable: 1
+  ApplyFromRTSP: 1
+  TestPipeline: ""
+
+ViewerRTSP:
+  Enable: 1
+  MaxBufferSize: -1
+  FrameUsage: 50
+  ControlRate: 0
+  Bitrate: 0
+  TestPipeline: ""
+
+Overlay:
+  Preset: 2
+  DateTime: 1
+  Channel: 1
+  Version: 1
+  TickTime: 1
+  ObjectID: 1
+  ObjectSpeed: 1
+  ObjectScore: 1
+  ObjectBorder: 1
+  Project: 1
+  Algorithm: 1
+  Logging: 1
+  Region: -1
+  DisplayErrorAlways: 1
+
+Debugging:
+  PrintElementProcessTime: 0
+  PrintGrabbingInterval: 0
+  PrintExternalTimeDiff: 0

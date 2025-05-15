@@ -1,0 +1,23 @@
+{
+  "int1": 1,
+  "int2": 2,
+  "float1": 0.123,
+  "float2": 0.321,
+  "double1": 0.456778,
+  "double2": 0.877654,
+  "bool1": false,
+  "bool2": true,
+  "str1": "Hello !",
+  "str2": "World !",
+  "obj1": {
+    "val1": 1,
+    "obj": {
+      "val2": 2
+    }
+  },
+  "arr1": [
+    1,
+    2,
+    3
+  ]
+}

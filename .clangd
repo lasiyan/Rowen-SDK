@@ -1,0 +1,12 @@
+Diagnostics:
+  Suppress: 
+    - Wreturn-type-c-linkage
+    - misc-unused-alias-decls
+    - Wcomment
+
+# If:
+#   PathMatch: (.*\.h|.*\.hpp|.*\.c|.*\.cpp|.*\.inl)
+# Diagnostics:
+#   Suppress:
+#     - unused-includes
+

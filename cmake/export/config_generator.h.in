@@ -1,0 +1,14 @@
+#ifndef RS_SYSTEM_H
+#define RS_SYSTEM_H
+
+// clang-format off
+
+#ifndef rsdk_local_builder
+
+@RS_CONFIG_FLAGS_OUTPUT@
+
+#endif  // rsdk_local_builder
+
+// clang-format on
+
+#endif  // RS_SYSTEM_H
