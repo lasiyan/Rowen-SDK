@@ -5,9 +5,9 @@ project(rowen VERSION 2.0.0)
 # SDK options definition
 option(OPTION_WITH_DATABASE_LOGGER  "Enable Database Logger"                OFF)
 option(OPTION_WITH_JETSON_UTILS     "Use Jetson Utils with Vision Module"   OFF)
-option(OPTION_WITH_RSDK_VISION      "Enable Vision Module"                  ON)
-option(OPTION_EXPORT_CMAKE_SHARE    "Export rowen sdk configure cmake"      ON)
-set(OPTION_DEPLOY_PACKAGE_PATH      "dist" CACHE STRING "Export rowen sdk deploy package")
+option(OPTION_WITH_RSDK_VISION      "Enable Vision Module"                  OFF)
+option(OPTION_EXPORT_CMAKE_SHARE    "Export rowen sdk configure cmake"      OFF)
+set(OPTION_DEPLOY_PACKAGE_PATH      "" CACHE STRING "Export rowen sdk deploy package")
 
 
 # Scripts

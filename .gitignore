@@ -22,3 +22,6 @@ compile_commands.json
 
 # version file
 apps/version/version.h
+
+# ignore local config files
+cmake/*.local

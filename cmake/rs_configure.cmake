@@ -17,3 +17,9 @@ set(RSDK_INSTALL_LIBDIR     ${CMAKE_INSTALL_LIBDIR})
 set(RSDK_INSTALL_BINDIR     ${CMAKE_INSTALL_BINDIR})
 set(RSDK_INSTALL_SHAREDIR   share/rowen)
 set(RSDK_INSTALL_SAMPLEDIR  sample)
+
+
+# Overwrite default configures (for testing)
+if (EXISTS ${CMAKE_CURRENT_LIST_DIR}/rs_configure.cmake.local)
+    include(${CMAKE_CURRENT_LIST_DIR}/rs_configure.cmake.local)
+endif()
