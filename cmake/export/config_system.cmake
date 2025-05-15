@@ -1,4 +1,3 @@
-include(${CMAKE_CURRENT_LIST_DIR}/config_generator.cmake)
 # --------------------------------------------------------------------------------
 # Search platform information in current system
 # And generate rowen/config.h

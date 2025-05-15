@@ -16,6 +16,7 @@ include(cmake/rs_compiler.cmake)
 include(cmake/rs_add_executable.cmake)
 include(cmake/rs_add_library.cmake)
 include(cmake/rs_post_install.cmake)
+include(cmake/rs_config_generator.cmake)
 # Scripts for platform detection
 include(cmake/export/config_system.cmake)
 include(cmake/export/config_cuda.cmake)
