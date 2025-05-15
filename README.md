@@ -4,6 +4,8 @@ It provides utility wrappers around standard C++ libraries (e.g., `<chrono>`) to
 
 > This project is updated infrequently, but we aim to keep it maintained and relevant.
 
+Contributions and suggestions are welcome.
+
 ---
 
 ## Test Environment & Requirements
@@ -33,7 +35,7 @@ It provides utility wrappers around standard C++ libraries (e.g., `<chrono>`) to
     cd Rowen-SDK
     ```
 
-2. (Optional) Choose your own configure options
+2. **Customize your build (optional)**
 
     - Specify a compiler:
       ```bash
@@ -85,7 +87,17 @@ It provides utility wrappers around standard C++ libraries (e.g., `<chrono>`) to
 
 ---
 
-## 📌 Notes
+## 🧩 External Dependencies (Bundled)
 
-- This SDK is designed with embedded and robotics projects in mind.
-- Contributions and suggestions are welcome.
+This SDK internally wraps and simplifies several popular open-source C++ libraries:
+
+- **jsoncpp**
+- **rapidjson**
+- **yaml-cpp**
+
+The required source (`.cpp`) and header (`.h`) files for these libraries are **included directly in this repository**.  
+You do **not** need to install them separately.
+
+Additionally, the SDK provides **helper functions** that abstract and simplify common usage patterns of these libraries.
+
+> ⚠️ The original open-source licenses for each library are preserved and respected in the repository.
