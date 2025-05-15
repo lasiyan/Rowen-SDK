@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef rsdk_local_builder
-  #include "rowen_system.h"
+  #include "rowen_config.h"  // IWYU pragma: export
 #endif
 
 #include <cstdint>

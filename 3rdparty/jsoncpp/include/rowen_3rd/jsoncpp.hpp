@@ -53,6 +53,7 @@ bool __rs_jsoncpp_get_validation__(const Json::Value& root, First first)
 }
 
 namespace Json {  // name of jsoncpp namespace
+class Value;      // redeclare Json::Value (for. export)
 
 template <typename T, typename First, typename... Args>
 bool get(T& variable, const Json::Value& root, First first, Args... args)
