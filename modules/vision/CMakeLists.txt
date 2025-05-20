@@ -1,6 +1,6 @@
 rs_add_library(
     SOURCES
-        src/frame_casting.cpp
+        # src/frame_casting.cpp
         src/polygon_impl.cpp
         src/drawable_pango.cpp
         src/converter_bgr.cpp
@@ -15,12 +15,10 @@ target_link_libraries(${TARGET}
 
 
 # OpenCV
-include(${CMAKE_SOURCE_DIR}/cmake/export/find_package_opencv.cmake)
 find_package_opencv(TARGET ${TARGET} SCOPE PUBLIC REQUIRED)
 
 
 # Pango Library
-include(${CMAKE_SOURCE_DIR}/cmake/export/find_package_pango.cmake)
 find_package_pango(TARGET ${TARGET})
 
 

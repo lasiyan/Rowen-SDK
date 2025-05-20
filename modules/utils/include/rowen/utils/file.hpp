@@ -1,11 +1,7 @@
 #pragma once
 
 #if (__cplusplus >= __cpp_lib_filesystem)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-W#warnings"
-  #warning "This header is deprecated. Use <filesystem> instead."
-  #pragma clang diagnostic pop
-
+  #include <filesystem>  // IWYU pragma: export
 #else
   #include <sys/types.h>
 

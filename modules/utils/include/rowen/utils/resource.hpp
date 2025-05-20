@@ -39,6 +39,15 @@ class resource
   // Temperature
   static bool temperature(int index, double* temperature_value);
 
+  // Storage Usage
+  struct StorageInfo
+  {
+    uint64_t total;
+    uint64_t used;
+    uint64_t free;
+  };
+  static float storageUsage(StorageInfo* storage_detail_info = nullptr, const char* path = "/");
+
  private:
   // initialize Resource class
   static void setup();
@@ -56,3 +65,9 @@ class resource
 
 };  // namespace utils
 };  // namespace rs
+
+extern float g_resource_cpu_usage;
+extern float g_resource_memory_usage;
+extern float g_resource_gpu_usage;
+extern float g_resource_temperature;
+extern float g_resource_storage_usage;

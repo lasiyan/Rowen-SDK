@@ -1,3 +1,4 @@
+include(${CMAKE_CURRENT_LIST_DIR}/config_allocator.cmake)
 # --------------------------------------------------------------------------------
 # Search platform information in current system
 # And generate rowen/config.h

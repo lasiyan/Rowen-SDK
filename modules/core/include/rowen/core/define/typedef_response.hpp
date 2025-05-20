@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include <vector>
 
+#include "../format.hpp"
 #include "typedef_status.hpp"
 
 // #define RS_RESPONSE_ALLOW_STRING_OPERATOR
@@ -23,26 +23,6 @@ namespace rs {
 
 class structResponse
 {
- protected:
-  template <typename... Args>
-  static std::string format_string(const char* fmt, Args&&... args)
-  {
-    if constexpr (sizeof...(args) == 0)
-    {
-      return fmt ? std::string(fmt) : "";
-    }
-    else
-    {
-      int size = std::snprintf(nullptr, 0, fmt, std::forward<Args>(args)...);
-      if (size <= 0)
-        return "";
-
-      std::vector<char> buffer(size + 1);
-      std::snprintf(buffer.data(), buffer.size(), fmt, std::forward<Args>(args)...);
-      return std::string(buffer.data(), size);
-    }
-  }
-
  public:
   int         status  = rssOK;                            // response status
   std::string message = rss_global_state_string(status);  // response status message
@@ -111,7 +91,7 @@ class structResponse
   template <typename... Args>
   structResponse& setFmt(int status, const char* fmt, Args&&... args)
   {
-    return set(status, format_string(fmt, std::forward<Args>(args)...));
+    return set(status, format(fmt, std::forward<Args>(args)...));
   }
   template <typename... Args>
   structResponse& set(int status, const char* fmt, Args&&... args)

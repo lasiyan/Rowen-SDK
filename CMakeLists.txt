@@ -7,6 +7,7 @@ option(OPTION_WITH_DATABASE_LOGGER  "Enable Database Logger"                OFF)
 option(OPTION_WITH_JETSON_UTILS     "Use Jetson Utils with Vision Module"   OFF)
 option(OPTION_WITH_RSDK_VISION      "Enable Vision Module"                  OFF)
 option(OPTION_EXPORT_CMAKE_SHARE    "Export rowen sdk configure cmake"      OFF)
+option(OPTION_INSTALL_FOR_DEVELOPER "Install include, lib, and share only"  OFF)
 set(OPTION_DEPLOY_PACKAGE_PATH      "" CACHE STRING "Export rowen sdk deploy package")
 
 
@@ -17,13 +18,11 @@ include(cmake/rs_add_executable.cmake)
 include(cmake/rs_add_library.cmake)
 include(cmake/rs_post_install.cmake)
 include(cmake/rs_config_generator.cmake)
-# Scripts for platform detection
-include(cmake/export/config_system.cmake)
-include(cmake/export/config_cuda.cmake)
+include(cmake/export/RowenExport.cmake)
 
 # Build configuration
 add_compile_definitions(rsdk_local_builder)
-rs_config_generator(RS_CONFIG_FLAGS)
+rs_config_header_define_generator(RS_CONFIG_FLAGS)
 
 
 # Sub directories
@@ -35,8 +34,12 @@ add_subdirectory(samples)
 
 # Export CMake configuration
 if (OPTION_EXPORT_CMAKE_SHARE)
-    file(GLOB export_cmake_files cmake/export/*.cmake)
-    install(FILES ${export_cmake_files} DESTINATION ${RSDK_INSTALL_SHAREDIR})
+    install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/export/
+        DESTINATION ${RSDK_INSTALL_SHAREDIR}
+        FILES_MATCHING PATTERN "*.cmake"
+    )
+    # file(GLOB export_cmake_files cmake/export/*.cmake)
+    # install(FILES ${export_cmake_files} DESTINATION ${RSDK_INSTALL_SHAREDIR})
 endif()
 
 

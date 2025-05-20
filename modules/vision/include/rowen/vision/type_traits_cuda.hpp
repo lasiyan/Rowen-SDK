@@ -3,6 +3,8 @@
 
 #include "core/typedef_cuda_mat.hpp"  // IWYU pragma: export
 
+#if defined(RSDK_WITH_JETSON_UTILS)
+
 namespace rs {
 
 using GpuMat = vision::GpuMat;
@@ -23,5 +25,7 @@ struct GpuFrame
 };
 
 };  // namespace rs
+
+#endif
 
 #endif  // RS_VISION_TYPE_TRAITS_CUDA_HPP

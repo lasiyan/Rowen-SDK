@@ -38,6 +38,14 @@ int main()
     // GPU
     printf("GPU Usage: %.1f%%\n", rs::utils::resource::totalGPUUsage());
 
+    // Storage
+    rs::utils::resource::StorageInfo storage_info;
+    rs::utils::resource::storageUsage(&storage_info);
+    printf("Storage Usage: %.1f%%\n", (float)storage_info.used / storage_info.total * 100);
+    printf("Storage Info: %lu %lu %lu\n", storage_info.total, storage_info.used, storage_info.free);
+    printf("Storage Info: %lu %lu %lu\n", rs::utils::resource::convertToGB(storage_info.total),
+           rs::utils::resource::convertToGB(storage_info.used), rs::utils::resource::convertToGB(storage_info.free));
+
     rs::time::sleep(1s);
   }
 

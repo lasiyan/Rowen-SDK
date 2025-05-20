@@ -6,6 +6,17 @@
 #include <sys/times.h>
 #include <unistd.h>
 
+#ifdef __linux__
+  #include <sys/statvfs.h>
+#endif
+
+// export
+float g_resource_cpu_usage     = 0.0f;
+float g_resource_memory_usage  = 0.0f;
+float g_resource_gpu_usage     = 0.0f;
+float g_resource_temperature   = 0.0f;
+float g_resource_storage_usage = 0.0f;
+
 namespace rs {
 namespace utils {
 
@@ -311,6 +322,51 @@ bool resource::temperature(int index, double* temperature_value)
   *(temperature_value) /= 1000.f;
 
   return true;
+}
+
+float resource::storageUsage(StorageInfo* storage_detail_info, const char* path)
+{
+#ifdef __linux__
+  struct statvfs stat;
+
+  if (::statvfs(path, &stat) != 0 || stat.f_blocks == 0)
+  {
+    if (storage_detail_info)
+    {
+      storage_detail_info->total = 0;
+      storage_detail_info->used  = 0;
+      storage_detail_info->free  = 0;
+    }
+    return 0.0f;
+  }
+
+  // 일반 사용자 기준 사용 가능 공간
+  const uint64_t total     = static_cast<uint64_t>(stat.f_blocks) * stat.f_frsize;
+  const uint64_t available = static_cast<uint64_t>(stat.f_bavail) * stat.f_frsize;
+  const uint64_t used      = total - available;
+
+  if (storage_detail_info)
+  {
+    storage_detail_info->total = total;
+    storage_detail_info->used  = used;
+    storage_detail_info->free  = available;
+  }
+
+  if (total == 0)
+    return 0.0f;
+
+  float usage_ratio = static_cast<float>(used) / total;
+  return usage_ratio * 100.0f;
+
+#else
+  if (storage_detail_info)
+  {
+    storage_detail_info->total = 0;
+    storage_detail_info->used  = 0;
+    storage_detail_info->free  = 0;
+  }
+  return 0.0f;
+#endif
 }
 
 //////////////////////////////////////////////////////

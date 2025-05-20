@@ -61,39 +61,6 @@ using Polygon = vision::Polygon;
 using Mat    = vision::Mat;
 using RawMat = vision::RawMat;
 
-#if defined(RSDK_WITH_JETSON_UTILS)
-struct GpuFrame;
-#endif
-
-struct GpuFrame;
-
-struct __FrameProps
-{
-  uint64_t    time     = 0;
-  std::string error    = "";
-  std::string metadata = "";
-  int64_t     pos      = -1;
-  int         fps      = 0;
-};
-
-struct Frame : __FrameProps
-{
-  Mat img;
-
-  Frame() = default;
-  Frame(const GpuFrame& frame);
-  Frame& operator=(const GpuFrame& frame);
-};
-
-struct RawFrame : __FrameProps
-{
-  RawMat img;
-
-  RawFrame() = default;
-  RawFrame(const GpuFrame& frame);
-  RawFrame& operator=(const GpuFrame& frame);
-};
-
 };  // namespace rs
 
 #endif  // RS_VISION_TYPE_TRAITS_HPP

@@ -1,0 +1,6 @@
+include(${CMAKE_CURRENT_LIST_DIR}/rowen/config_system.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/rowen/config_cuda.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/rowen/find_package.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/rowen/find_package_opencv.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/rowen/find_package_pango.cmake)
+rs_config_cmake_variable_allocate(RS_CONFIG_FLAGS)

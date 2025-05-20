@@ -1,3 +1,6 @@
+include(${CMAKE_CURRENT_LIST_DIR}/config_allocator.cmake)
+# --------------------------------------------------------------------------------
+
 function(cuda_version_configure OUTPUT_LIST)
     set(cuda_defines "${${OUTPUT_LIST}}") # backup previous defines
 

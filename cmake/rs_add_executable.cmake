@@ -46,17 +46,19 @@ function(rs_add_executable)
     set(${ARG_OUTPUT}       ${ARG_NAME} PARENT_SCOPE)
 
     # Set Insall directory (APP)
-    if (ARG_TYPE STREQUAL "APP")
-        install(
-            TARGETS     ${ARG_NAME}
-            DESTINATION ${RSDK_INSTALL_BINDIR}
-            PERMISSIONS ${INSTALL_EXECUTE_PERMISSION}
-        )    
-    elseif (ARG_TYPE STREQUAL "SAMPLE")
-        install(
-            TARGETS     ${ARG_NAME}
-            DESTINATION ${RSDK_INSTALL_SAMPLEDIR}
-            PERMISSIONS ${INSTALL_EXECUTE_PERMISSION}
-        )
+    if (NOT OPTION_INSTALL_FOR_DEVELOPER)
+        if (ARG_TYPE STREQUAL "APP")
+            install(
+                TARGETS     ${ARG_NAME}
+                DESTINATION ${RSDK_INSTALL_BINDIR}
+                PERMISSIONS ${INSTALL_EXECUTE_PERMISSION}
+            )    
+        elseif (ARG_TYPE STREQUAL "SAMPLE")
+            install(
+                TARGETS     ${ARG_NAME}
+                DESTINATION ${RSDK_INSTALL_SAMPLEDIR}
+                PERMISSIONS ${INSTALL_EXECUTE_PERMISSION}
+            )
+        endif()
     endif()
 endfunction()

@@ -1,6 +1,6 @@
 set(RS_CONFIG_GENERATOR_FILE "${CMAKE_CURRENT_LIST_DIR}/rs_config_generator.h.in")
 
-function(rs_config_generator CONFIG_FLAGS)
+function(rs_config_header_define_generator CONFIG_FLAGS)
     foreach(def IN LISTS ${CONFIG_FLAGS})
         string(FIND ${def} "=" pos)
 

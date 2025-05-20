@@ -7,13 +7,11 @@
 
 constexpr auto alpha = 128;  // 0: 투명, 255: 불투명
 
-static void drawing(const rs::Frame& frame)
+static void drawing(const rs::Mat& img)
 {
   rs::terminal(false, "rm -f res_cuda.jpg");
 
   std::string str = "Hello World!";
-
-  const auto& img = frame.img;
 
 #if defined(RSDK_WITH_JETSON_UTILS)
   rs::GpuFrame gpu_frame;
@@ -251,9 +249,8 @@ inline void run()
     path = rs::format("%s.jpg", i.c_str());
 
     // read image
-    rs::Frame frame;
-    frame.img = rs::vision::io::image::read<decltype(frame.img)>(path);
+    auto img = rs::vision::io::image::read<rs::Mat>(path);
 
-    drawing(frame);
+    drawing(img);
   }
 }

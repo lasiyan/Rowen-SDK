@@ -18,10 +18,12 @@ if (OPTION_WITH_JETSON_UTILS AND __platform_jetson__)
             ${PROJECT_NAME}_jetson
     )
 
-    install(
-        FILES ${CMAKE_CURRENT_SOURCE_DIR}/test.jpg
-        DESTINATION ${RSDK_INSTALL_SAMPLEDIR}
-    )
+    if (NOT OPTION_INSTALL_FOR_DEVELOPER)
+        install(
+            FILES ${CMAKE_CURRENT_SOURCE_DIR}/test.jpg
+            DESTINATION ${RSDK_INSTALL_SAMPLEDIR}
+        )
+    endif()
 
     add_custom_command(TARGET ${TARGET} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
