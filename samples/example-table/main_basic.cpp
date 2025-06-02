@@ -1,7 +1,6 @@
 #include <cassert>
 #include <iostream>
-
-#include "rowen/utils/table.hpp"
+#include <rowen/utils/table.hpp>
 
 using namespace rs;
 

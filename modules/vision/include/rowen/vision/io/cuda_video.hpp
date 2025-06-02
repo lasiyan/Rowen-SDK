@@ -1,7 +1,7 @@
 #ifndef RS_VISION_IO_CUDA_VIDEO_HPP
 #define RS_VISION_IO_CUDA_VIDEO_HPP
 
-#include "rowen_jetson/videoOutput.h"  // IWYU pragma: export
+#include <rowen_jetson/videoOutput.h>  // IWYU pragma: export
 
 namespace rs {
 namespace vision {

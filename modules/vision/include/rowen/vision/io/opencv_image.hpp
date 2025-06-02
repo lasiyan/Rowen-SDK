@@ -3,8 +3,7 @@
 
 #include <filesystem>
 #include <opencv2/imgcodecs.hpp>
-
-#include "../type_traits.hpp"
+#include <rowen/vision/type_traits.hpp>
 
 namespace rs {
 namespace vision {

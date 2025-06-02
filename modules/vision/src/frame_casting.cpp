@@ -1,7 +1,7 @@
 // #if defined(RSDK_WITH_JETSON_UTILS)
 
-#include "rowen/vision/type_traits.hpp"
-#include "rowen/vision/type_traits_cuda.hpp"
+#include <rowen/vision/type_traits.hpp>
+#include <rowen/vision/type_traits_cuda.hpp>
 
 namespace rs {
 

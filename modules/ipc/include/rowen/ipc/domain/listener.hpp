@@ -2,12 +2,11 @@
 
 #include <future>
 #include <mutex>
+#include <rowen/core/transport/packet_receiver.hpp>
+#include <rowen/ipc/domain/detail/socket.hpp>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
-
-#include "rowen/transport/packet_receiver.hpp"
-#include "template/socket.hpp"
 
 namespace rs {
 namespace ipc {

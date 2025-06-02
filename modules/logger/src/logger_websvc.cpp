@@ -1,9 +1,8 @@
 #ifdef RS_WITH_DATABASE_LOGGER
 
-  #include "rowen/logger/logger_websvc.hpp"
-
-  #include "rowen_3rd/jsoncpp.hpp"
-  #include "rowen_3rd/websvc_conn.hpp"
+  #include <rowen/logger/logger_websvc.hpp>
+  #include <rowen_3rd/jsoncpp.hpp>
+  #include <rowen_3rd/websvc_conn.hpp>
 
 namespace rs {
 

@@ -1,21 +1,14 @@
-#include "rowen/utils/resource.hpp"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/times.h>
 #include <unistd.h>
 
+#include <rowen/utils/resource.hpp>
+
 #ifdef __linux__
   #include <sys/statvfs.h>
 #endif
-
-// export
-float g_resource_cpu_usage     = 0.0f;
-float g_resource_memory_usage  = 0.0f;
-float g_resource_gpu_usage     = 0.0f;
-float g_resource_temperature   = 0.0f;
-float g_resource_storage_usage = 0.0f;
 
 namespace rs {
 namespace utils {

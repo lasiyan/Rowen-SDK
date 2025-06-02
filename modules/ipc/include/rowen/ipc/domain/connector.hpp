@@ -2,8 +2,7 @@
 
 #include <atomic>
 #include <mutex>
-
-#include "template/socket.hpp"
+#include <rowen/ipc/domain/detail/socket.hpp>
 
 namespace rs {
 namespace ipc {

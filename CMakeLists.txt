@@ -3,12 +3,14 @@ project(rowen VERSION 2.0.0)
 
 
 # SDK options definition
-option(OPTION_WITH_DATABASE_LOGGER  "Enable Database Logger"                OFF)
-option(OPTION_WITH_JETSON_UTILS     "Use Jetson Utils with Vision Module"   OFF)
-option(OPTION_WITH_RSDK_VISION      "Enable Vision Module"                  OFF)
-option(OPTION_EXPORT_CMAKE_SHARE    "Export rowen sdk configure cmake"      OFF)
-option(OPTION_INSTALL_FOR_DEVELOPER "Install include, lib, and share only"  OFF)
-set(OPTION_DEPLOY_PACKAGE_PATH      "" CACHE STRING "Export rowen sdk deploy package")
+option(OPTION_BUILD_CORE_WITH_LOGGER    "Build Logger with Core Module"         OFF)
+option(OPTION_WITH_DATABASE_LOGGER      "Enable Database Logger"                OFF)
+option(OPTION_WITH_JETSON_UTILS         "Use Jetson Utils with Vision Module"   OFF)
+option(OPTION_WITH_RSDK_VISION          "Enable Vision Module"                  OFF)
+option(OPTION_EXPORT_CMAKE_SHARE        "Export rowen sdk configure cmake"      OFF)
+option(OPTION_INSTALL_FOR_DEVELOPER     "Install include, lib, and share only"  OFF)
+option(OPTION_INSTALL_TESTS             "Install test files"                    OFF)
+set(OPTION_DEPLOY_PACKAGE_PATH          "" CACHE STRING "Export rowen sdk deploy package")
 
 
 # Scripts
@@ -26,7 +28,6 @@ rs_config_header_define_generator(RS_CONFIG_FLAGS)
 
 
 # Sub directories
-add_subdirectory(apps)
 add_subdirectory(3rdparty)
 add_subdirectory(modules)
 add_subdirectory(samples)

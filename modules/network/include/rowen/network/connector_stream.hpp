@@ -2,9 +2,8 @@
 
 #include <atomic>
 #include <mutex>
-
-#include "rowen/transport/packet_typedef.hpp"
-#include "template/connector.hpp"
+#include <rowen/core/transport/packet_typedef.hpp>
+#include <rowen/network/detail/connector.hpp>
 
 namespace rs {
 namespace network {

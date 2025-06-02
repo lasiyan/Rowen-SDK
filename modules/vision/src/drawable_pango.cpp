@@ -1,7 +1,6 @@
-#include "rowen/vision/drawable/drawable_pango.hpp"
-
-#include "rowen/core/function.hpp"
-#include "rowen/vision/converter.hpp"
+#include <rowen/core/function.hpp>
+#include <rowen/vision/converter.hpp>
+#include <rowen/vision/drawable/drawable_pango.hpp>
 
 namespace rs {
 namespace vision {

@@ -1,7 +1,6 @@
 #include <iostream>
+#include <rowen/ipc/domain/connector.hpp>
 #include <thread>
-
-#include "rowen/ipc/domain/connector.hpp"
 
 static bool exit_flag = false;
 

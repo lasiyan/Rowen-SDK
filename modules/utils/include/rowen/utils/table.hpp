@@ -1,9 +1,8 @@
 #pragma once
 
+#include <rowen/core/format.hpp>
 #include <string>
 #include <vector>
-
-#include "rowen/core/format.hpp"
 
 namespace rs {
 

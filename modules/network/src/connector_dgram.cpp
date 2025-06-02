@@ -1,9 +1,8 @@
 
-#include "rowen/network/connector_dgram.hpp"
-
 #include <fcntl.h>
 
-#include "rowen/core/exception.hpp"
+#include <rowen/core/exception.hpp>
+#include <rowen/network/connector_dgram.hpp>
 
 namespace rs {
 namespace network {

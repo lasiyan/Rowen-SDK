@@ -1,9 +1,7 @@
-#include "rowen/network/listener_stream.hpp"
-
 #include <iomanip>
+#include <rowen/core/exception.hpp>
+#include <rowen/network/listener_stream.hpp>
 #include <sstream>
-
-#include "rowen/core/exception.hpp"
 
 namespace rs {
 namespace network {

@@ -1,11 +1,11 @@
 #pragma once
 
+#include <rowen_3rd/jsoncpp/json.h>  // IWYU pragma: export
+
 #include <filesystem>
 #include <iostream>
 #include <string>
 #include <type_traits>
-
-#include "jsoncpp/json.h"  // IWYU pragma: export
 
 #if defined(__GNUC__) || defined(__clang__)
   #include <cxxabi.h>
@@ -15,26 +15,28 @@
 template <typename T>
 T __rs_jsoncpp_type_traits_as__(const Json::Value& root)
 {
+  using base_type = typename std::decay_t<T>;
+
   // clang-format off
-  if constexpr      (std::is_same_v<T, char> ||
-                     std::is_same_v<T, short> ||
-                     std::is_same_v<T, int> ||
-                     std::is_same_v<T, int8_t> ||
-                     std::is_same_v<T, int16_t> ||
-                     std::is_same_v<T, int32_t>)            return static_cast<T>(root.asInt());
-  else if constexpr (std::is_same_v<T, unsigned int> ||
-                     std::is_same_v<T, uint8_t> ||
-                     std::is_same_v<T, uint16_t> ||
-                     std::is_same_v<T, uint32_t>)           return static_cast<T>(root.asUInt());
-  else if constexpr (std::is_same_v<T, long> ||
-                     std::is_same_v<T, int64_t>)            return static_cast<T>(root.asInt64());
-  else if constexpr (std::is_same_v<T, uint64_t>)           return root.asUInt64();
-  else if constexpr (std::is_same_v<T, float>)              return root.asFloat();
-  else if constexpr (std::is_same_v<T, double>)             return root.asDouble();
-  else if constexpr (std::is_same_v<T, bool>)               return root.asBool();
-  else if constexpr (std::is_same_v<T, std::string>)        return root.asString();
-  else if constexpr (std::is_same_v<T, const char*>)        return root.asCString();
-  else if constexpr (std::is_same_v<T, Json::Value>)        return root;
+  if constexpr      (std::is_same_v<base_type, char> ||
+                     std::is_same_v<base_type, short> ||
+                     std::is_same_v<base_type, int> ||
+                     std::is_same_v<base_type, int8_t> ||
+                     std::is_same_v<base_type, int16_t> ||
+                     std::is_same_v<base_type, int32_t>)            return static_cast<T>(root.asInt());
+  else if constexpr (std::is_same_v<base_type, unsigned int> ||
+                     std::is_same_v<base_type, uint8_t> ||
+                     std::is_same_v<base_type, uint16_t> ||
+                     std::is_same_v<base_type, uint32_t>)           return static_cast<T>(root.asUInt());
+  else if constexpr (std::is_same_v<base_type, long> ||
+                     std::is_same_v<base_type, int64_t>)            return static_cast<T>(root.asInt64());
+  else if constexpr (std::is_same_v<base_type, uint64_t>)           return root.asUInt64();
+  else if constexpr (std::is_same_v<base_type, float>)              return root.asFloat();
+  else if constexpr (std::is_same_v<base_type, double>)             return root.asDouble();
+  else if constexpr (std::is_same_v<base_type, bool>)               return root.asBool();
+  else if constexpr (std::is_same_v<base_type, std::string>)        return root.asString();
+  else if constexpr (std::is_same_v<base_type, const char*>)        return root.asCString();
+  else if constexpr (std::is_same_v<base_type, Json::Value>)        return root;
   else
     throw Json::LogicError("__rs_jsoncpp_type_traits_as__ : Unsupported type");
   // clang-format on
@@ -128,6 +130,25 @@ bool exist(const Json::Value& root, First first, Args... args)
   {
     return false;
   }
+}
+
+template <typename T>
+bool set(const T& variable, Json::Value& root)
+{
+  return false;
+}
+
+template <typename T, typename First>
+bool set(const T& variable, Json::Value& root, First first)
+{
+  root[first] = variable;
+  return true;
+}
+
+template <typename T, typename First, typename Second, typename... Rest>
+bool set(const T& variable, Json::Value& root, First&& first, Second&& second, Rest&&... rest)
+{
+  return set(variable, root[first], std::forward<Second>(second), std::forward<Rest>(rest)...);
 }
 
 #ifdef RS_JSON_ACTIVATE_PREVIEW_SET

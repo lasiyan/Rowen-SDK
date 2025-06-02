@@ -1,8 +1,9 @@
 #ifndef RS_VISION_IO_CUDA_IMAGE_HPP
 #define RS_VISION_IO_CUDA_IMAGE_HPP
 
-#include "../type_traits_cuda.hpp"
-#include "rowen_jetson/imageIO.h"
+#include <rowen_jetson/imageIO.h>
+
+#include <rowen/vision/type_traits_cuda.hpp>
 
 namespace rs {
 namespace vision {

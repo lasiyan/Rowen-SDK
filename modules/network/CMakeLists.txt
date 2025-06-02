@@ -1,4 +1,6 @@
 rs_add_library(
+    TYPE    SHARED
+    OUTPUT  TARGET
     SOURCES
         src/config_query.cpp
         src/listener_stream.cpp
@@ -6,11 +8,8 @@ rs_add_library(
         src/connector_stream.cpp
         src/connector_dgram.cpp
     OUTPUT TARGET
-)
-
-target_link_libraries(${TARGET}
-    PUBLIC
-        pthread
-        ${PROJECT_NAME}_core
-        ${PROJECT_NAME}_transport
+    LINK_LIBS
+        PUBLIC
+            pthread
+            ${PROJECT_NAME}_core
 )

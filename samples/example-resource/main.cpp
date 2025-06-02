@@ -1,9 +1,8 @@
 #include <cmath>
 #include <cstdio>
+#include <rowen/core/time.hpp>
+#include <rowen/utils/resource.hpp>
 #include <thread>
-
-#include "rowen/core/time.hpp"
-#include "rowen/utils/resource.hpp"
 
 void raiseCPUusage()
 {

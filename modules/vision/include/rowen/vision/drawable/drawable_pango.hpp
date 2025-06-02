@@ -5,8 +5,8 @@
   #include <pango/pangocairo.h>
 #endif
 
-#include "../type_traits.hpp"
-#include "drawable_typedef.hpp"
+#include <rowen/vision/drawable/drawable_typedef.hpp>
+#include <rowen/vision/type_traits.hpp>
 
 namespace rs {
 namespace vision {

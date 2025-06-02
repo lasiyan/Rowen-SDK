@@ -5,9 +5,8 @@
   #include <condition_variable>
   #include <mutex>
   #include <queue>
+  #include <rowen/logger/detail/logger_base.cpp>
   #include <thread>
-
-  #include "template/logger_base.hpp"
 
 namespace rs {
 

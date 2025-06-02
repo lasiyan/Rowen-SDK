@@ -1,18 +1,18 @@
 #ifndef RS_VISION_DRAW_DRAWABLE_HPP
 #define RS_VISION_DRAW_DRAWABLE_HPP
 
-#include "drawable/drawable_opencv.hpp"   // IWYU pragma: export
-#include "drawable/drawable_typedef.hpp"  // IWYU pragma: export
+#include <rowen/vision/drawable/drawable_opencv.hpp>   // IWYU pragma: export
+#include <rowen/vision/drawable/drawable_typedef.hpp>  // IWYU pragma: export
 
 #if defined(RSDK_WITH_JETSON_UTILS)
-  #include "drawable/drawable_cuda.hpp"  // IWYU pragma: export
+  #include <rowen/vision/drawable/drawable_cuda.hpp>  // IWYU pragma: export
 #endif
 
 #ifdef RS_VISION_WITH_PANGO
-  #include "drawable/drawable_pango.hpp"  // IWYU pragma: export
+  #include <rowen/vision/drawable/drawable_pango.hpp>  // IWYU pragma: export
 #endif
 
-#include "matrix_check.h"
+#include <rowen/vision/matrix_check.h>
 
 namespace rs {
 namespace vision {

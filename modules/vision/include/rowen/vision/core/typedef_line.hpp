@@ -1,6 +1,6 @@
 #pragma once
 
-#include "typedef_point.hpp"
+#include <rowen/vision/core/typedef_point.hpp>
 
 namespace rs {
 namespace vision {

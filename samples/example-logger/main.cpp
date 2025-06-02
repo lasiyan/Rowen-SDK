@@ -1,8 +1,8 @@
-#include "rowen/logger.hpp"
+#include <rowen/logger.hpp>
 
 // #define LOGGER_BENCHMARK
 #ifdef LOGGER_BENCHMARK
-  #include "rowen/core/time.hpp"
+  #include <rowen/core/time.hpp>
 #endif
 
 int main_simple();

@@ -1,11 +1,10 @@
 #pragma once
 
 #include <array>
-
-#include "logger/logger_console.hpp"
-#include "logger/logger_file.hpp"
+#include <rowen/logger/logger_console.hpp>
+#include <rowen/logger/logger_file.hpp>
 #ifdef RS_WITH_DATABASE_LOGGER
-  #include "logger/logger_websvc.hpp"
+  #include <rowen/logger/logger_websvc.hpp>
 #endif
 
 namespace rs {

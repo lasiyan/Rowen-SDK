@@ -1,7 +1,6 @@
 #include <fstream>
 #include <memory>
-
-#include "rapidjson.hpp"
+#include <rowen_3rd/rapidjson.hpp>
 
 namespace rapidjson {
 namespace Helper {

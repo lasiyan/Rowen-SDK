@@ -1,10 +1,10 @@
 #ifndef RS_VISION_MATRIX_CHECK_HPP
 #define RS_VISION_MATRIX_CHECK_HPP
 
-#include "io/opencv_image.hpp"  // IWYU pragma: export
+#include <rowen/vision/io/opencv_image.hpp>  // IWYU pragma: export
 
 #if defined(RSDK_WITH_JETSON_UTILS)
-  #include "io/cuda_image.hpp"  // IWYU pragma: export
+  #include <rowen/vision/io/cuda_image.hpp>  // IWYU pragma: export
 #endif
 
 namespace rs {

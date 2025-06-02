@@ -2,10 +2,9 @@
 #define RS_VISION_DRAWABLE_DRAWABLE_OPENCV_HPP
 
 #include <opencv2/imgproc.hpp>
+#include <rowen/vision/drawable/drawable_typedef.hpp>
+#include <rowen/vision/type_traits.hpp>
 #include <vector>
-
-#include "../type_traits.hpp"
-#include "drawable_typedef.hpp"
 
 namespace rs {
 namespace vision {

@@ -1,8 +1,7 @@
 #include <fstream>
 #include <iostream>
-
-#include "rowen/core.hpp"
-#include "rowen_3rd/yamlcpp.hpp"
+#include <rowen/core.hpp>
+#include <rowen_3rd/yamlcpp.hpp>
 
 int main()
 {

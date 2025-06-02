@@ -1,8 +1,7 @@
 #include <functional>
 #include <iostream>
+#include <rowen/network/listener_dgram.hpp>
 #include <thread>
-
-#include "rowen/network/listener_dgram.hpp"
 
 class UDPServer
 {

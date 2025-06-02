@@ -1,8 +1,7 @@
+#include <rowen/core/format.hpp>
+#include <rowen/core/function.hpp>
 #include <sstream>
 #include <vector>
-
-#include "rowen/core/format.hpp"
-#include "rowen/core/function.hpp"
 
 namespace rs {
 

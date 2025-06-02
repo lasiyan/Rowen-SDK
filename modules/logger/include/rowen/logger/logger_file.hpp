@@ -3,10 +3,9 @@
 #include <cassert>
 #include <filesystem>
 #include <mutex>
+#include <rowen/core/function.hpp>  // IWYU pragma: export
+#include <rowen/logger/detail/logger_base.hpp>
 #include <unordered_map>
-
-#include "rowen/core/function.hpp"
-#include "template/logger_base.hpp"
 
 namespace rs {
 

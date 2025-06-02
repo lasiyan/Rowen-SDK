@@ -1,14 +1,14 @@
 #ifndef RS_VISION_DRAWABLE_DRAWABLE_CUDA_HPP
 #define RS_VISION_DRAWABLE_DRAWABLE_CUDA_HPP
 
-#include <mutex>
-#include <unordered_map>
+#include <rowen_jetson/cudaDraw.h>
+#include <rowen_jetson/cudaFont.h>
 
-#include "../type_traits.hpp"
-#include "../type_traits_cuda.hpp"
-#include "drawable_typedef.hpp"
-#include "rowen_jetson/cudaDraw.h"
-#include "rowen_jetson/cudaFont.h"
+#include <mutex>
+#include <rowen/vision/drawable/drawable_typedef.hpp>
+#include <rowen/vision/type_traits.hpp>
+#include <rowen/vision/type_traits_cuda.hpp>
+#include <unordered_map>
 
 #define DRAWABLE_CUDASYNC()  // CUDA(cudaDeviceSynchronize())
 

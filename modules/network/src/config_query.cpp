@@ -8,9 +8,8 @@
 #include <algorithm>
 #include <cstring>
 #include <fstream>
+#include <rowen/network/config.hpp>
 #include <sstream>
-
-#include "rowen/network/config.hpp"
 
 rs::network::config rs::network::config::instance_;
 

@@ -4,8 +4,8 @@
 
 #if defined(__platform_jetson__)
 
-  #include "rowen/vision/drawable.hpp"
-  #include "rowen/vision/io_image.hpp"
+  #include <rowen/vision/drawable.hpp>
+  #include <rowen/vision/io_image.hpp>
 
 inline void GpuMat_basic(const rs::Mat& cv_mat)
 {

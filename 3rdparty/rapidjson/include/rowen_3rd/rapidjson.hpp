@@ -38,25 +38,27 @@
 template <typename T>
 T __rs_rapidjson_type_traits_as__(const rapidjson::Value& root)
 {
+  using base_type = typename std::decay_t<T>;
+
   // clang-format off
-  if constexpr      (std::is_same_v<T, char> ||
-                     std::is_same_v<T, short> ||
-                     std::is_same_v<T, int> ||
-                     std::is_same_v<T, int8_t> ||
-                     std::is_same_v<T, int16_t> ||
-                     std::is_same_v<T, int32_t>)            return static_cast<T>(root.GetInt());
-  else if constexpr (std::is_same_v<T, unsigned int> ||
-                     std::is_same_v<T, uint8_t> ||
-                     std::is_same_v<T, uint16_t> ||
-                     std::is_same_v<T, uint32_t>)           return static_cast<T>(root.GetUint());
-  else if constexpr (std::is_same_v<T, long> ||
-                     std::is_same_v<T, int64_t>)            return static_cast<T>(root.GetInt64());
-  else if constexpr (std::is_same_v<T, uint64_t>)           return root.GetUint64();
-  else if constexpr (std::is_same_v<T, float>)              return root.GetFloat();
-  else if constexpr (std::is_same_v<T, double>)             return root.GetDouble();
-  else if constexpr (std::is_same_v<T, bool>)               return root.GetBool();
-  else if constexpr (std::is_same_v<T, std::string>)        return root.GetString();
-  else if constexpr (std::is_same_v<T, const char*>)        return root.GetString();
+  if constexpr      (std::is_same_v<base_type, char> ||
+                     std::is_same_v<base_type, short> ||
+                     std::is_same_v<base_type, int> ||
+                     std::is_same_v<base_type, int8_t> ||
+                     std::is_same_v<base_type, int16_t> ||
+                     std::is_same_v<base_type, int32_t>)            return static_cast<T>(root.GetInt());
+  else if constexpr (std::is_same_v<base_type, unsigned int> ||
+                     std::is_same_v<base_type, uint8_t> ||
+                     std::is_same_v<base_type, uint16_t> ||
+                     std::is_same_v<base_type, uint32_t>)           return static_cast<T>(root.GetUint());
+  else if constexpr (std::is_same_v<base_type, long> ||
+                     std::is_same_v<base_type, int64_t>)            return static_cast<T>(root.GetInt64());
+  else if constexpr (std::is_same_v<base_type, uint64_t>)           return root.GetUint64();
+  else if constexpr (std::is_same_v<base_type, float>)              return root.GetFloat();
+  else if constexpr (std::is_same_v<base_type, double>)             return root.GetDouble();
+  else if constexpr (std::is_same_v<base_type, bool>)               return root.GetBool();
+  else if constexpr (std::is_same_v<base_type, std::string>)        return root.GetString();
+  else if constexpr (std::is_same_v<base_type, const char*>)        return root.GetString();
   else
     throw std::runtime_error("__rs_rapidjson_type_traits_as__ : Unsupported type");
   // clang-format on

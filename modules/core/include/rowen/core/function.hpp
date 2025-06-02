@@ -6,10 +6,10 @@
 #include <cstring>  // IWYU pragma: export // for strrchr on RS_FILENAME
 #include <filesystem>
 #include <random>
+#include <rowen/core/format.hpp>
+#include <rowen/core/response.hpp>
 #include <string>
 #include <vector>
-
-#include "format.hpp"
 
 namespace rs {
 
@@ -36,6 +36,8 @@ inline std::string terminal(bool sudo, const char* fmt, Args... args)
 {
   return __platform_terminal_implement(sudo, format(fmt, args...));
 }
+
+rs::response_t kill_processor(const char* process_name, const float terminate_timeout = 3.0f);
 
 std::filesystem::path get_current_path();
 std::filesystem::path get_execute_filepath();

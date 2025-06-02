@@ -1,5 +1,4 @@
-#include "rowen/utils/table.hpp"
-
+#include <rowen/utils/table.hpp>
 #include <sstream>
 #include <string_view>
 

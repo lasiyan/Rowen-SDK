@@ -6,9 +6,8 @@
 
 #include <cerrno>
 #include <cstring>
-
-#include "rowen/core/define/typedef_response.hpp"
-#include "template/wrapper.hpp"
+#include <rowen/core/response.hpp>
+#include <rowen/ipc/sharedMemory/detail/wrapper.hpp>
 
 namespace rs {
 namespace ipc {

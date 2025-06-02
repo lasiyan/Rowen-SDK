@@ -2,7 +2,7 @@
 #include <fcntl.h>
 #include <sys/un.h>
 
-#include "rowen/ipc/domain/connector.hpp"
+#include <rowen/ipc/domain/connector.hpp>
 
 namespace rs {
 namespace ipc {

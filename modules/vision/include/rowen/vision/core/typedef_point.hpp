@@ -1,6 +1,6 @@
 #pragma once
 
-#include "typedef_size.hpp"  // IWYU pragma: export
+#include <rowen/vision/core/typedef_size.hpp>  // IWYU pragma: export
 
 namespace rs {
 namespace vision {

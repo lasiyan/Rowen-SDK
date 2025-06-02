@@ -1,7 +1,7 @@
 #pragma once
 
-#include "rowen/transport/packet_typedef.hpp"
-#include "template/listener.hpp"
+#include <rowen/core/transport/packet_typedef.hpp>
+#include <rowen/network/detail/listener.hpp>
 
 namespace rs {
 namespace network {

@@ -1,9 +1,9 @@
 #ifndef RS_VISION_IO_IMAGE_HPP
 #define RS_VISION_IO_IMAGE_HPP
 
-#include <filesystem>
+#include <rowen/vision/matrix_check.h>
 
-#include "matrix_check.h"
+#include <filesystem>
 
 namespace rs {
 namespace vision {

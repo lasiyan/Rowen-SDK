@@ -1,10 +1,10 @@
 #ifndef RS_VISION_IO_VIDEO_HPP
 #define RS_VISION_IO_VIDEO_HPP
 
-#include "io/opencv_video.hpp"  // IWYU pragma: export
+#include <rowen/vision/io/opencv_video.hpp>  // IWYU pragma: export
 
 #if defined(RSDK_WITH_JETSON_UTILS)
-  #include "io/cuda_video.hpp"  // IWYU pragma: export
+  #include <rowen/vision/io/cuda_video.hpp>  // IWYU pragma: export
 #endif
 
 namespace rs {

@@ -1,8 +1,7 @@
-#include "rowen/utils/twilight.hpp"
-
 #include <chrono>
 #include <cmath>
 #include <iomanip>
+#include <rowen/utils/twilight.hpp>
 
 namespace rs {
 namespace utils {

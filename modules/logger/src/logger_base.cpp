@@ -1,9 +1,8 @@
-#include "rowen/logger/template/logger_base.hpp"
-
 #include <algorithm>
 #include <cassert>
 #include <cstring>
 #include <ctime>
+#include <rowen/logger/detail/logger_base.hpp>
 #include <sstream>
 #include <vector>
 

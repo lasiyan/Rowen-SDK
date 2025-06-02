@@ -1,4 +1,6 @@
 rs_add_library(
+    TYPE    SHARED
+    OUTPUT  TARGET
     SOURCES
         src/file.cpp
         src/resource.cpp
@@ -7,10 +9,8 @@ rs_add_library(
         src/table.cpp
         src/tableExt.cpp
     OUTPUT TARGET
-)
-
-target_link_libraries(${TARGET}
-    PUBLIC
-        ${PROJECT_NAME}_core
-        pthread
+    LINK_LIBS
+        PUBLIC
+            pthread
+            ${PROJECT_NAME}_core
 )

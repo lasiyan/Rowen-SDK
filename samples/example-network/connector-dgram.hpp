@@ -1,6 +1,5 @@
 #include <iostream>
-
-#include "rowen/network/connector_dgram.hpp"
+#include <rowen/network/connector_dgram.hpp>
 
 inline int run_udp_client()
 {

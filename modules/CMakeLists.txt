@@ -1,7 +1,5 @@
 add_subdirectory(core)
-add_subdirectory(structure)
 add_subdirectory(logger)
-add_subdirectory(transport)
 add_subdirectory(network)
 add_subdirectory(ipc)
 add_subdirectory(utils)

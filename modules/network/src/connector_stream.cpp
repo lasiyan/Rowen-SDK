@@ -1,9 +1,8 @@
-#include "rowen/network/connector_stream.hpp"
-
 #include <assert.h>
 #include <fcntl.h>
 
-#include "rowen/core/exception.hpp"
+#include <rowen/core/exception.hpp>
+#include <rowen/network/connector_stream.hpp>
 
 namespace rs {
 namespace network {

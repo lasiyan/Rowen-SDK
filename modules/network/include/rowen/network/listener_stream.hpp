@@ -1,10 +1,9 @@
 #pragma once
 
+#include <rowen/core/transport/packet_receiver.hpp>
+#include <rowen/core/transport/packet_typedef.hpp>
+#include <rowen/network/detail/listener.hpp>
 #include <unordered_map>
-
-#include "rowen/transport/packet_receiver.hpp"
-#include "rowen/transport/packet_typedef.hpp"
-#include "template/listener.hpp"
 
 namespace rs {
 namespace network {

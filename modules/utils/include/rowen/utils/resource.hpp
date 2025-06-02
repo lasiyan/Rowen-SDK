@@ -65,9 +65,3 @@ class resource
 
 };  // namespace utils
 };  // namespace rs
-
-extern float g_resource_cpu_usage;
-extern float g_resource_memory_usage;
-extern float g_resource_gpu_usage;
-extern float g_resource_temperature;
-extern float g_resource_storage_usage;

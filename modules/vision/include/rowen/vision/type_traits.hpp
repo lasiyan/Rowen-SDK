@@ -2,16 +2,16 @@
 #define RS_VISION_TYPE_TRAITS_HPP
 
 #ifndef rsdk_local_builder
-  #include "rowen_config.h"
+  #include <rowen_config.hpp>
 #endif
 
-#include "core/typedef_line.hpp"     // IWYU pragma: export
-#include "core/typedef_matrix.hpp"   // IWYU pragma: export
-#include "core/typedef_point.hpp"    // IWYU pragma: export
-#include "core/typedef_polygon.hpp"  // IWYU pragma: export
-#include "core/typedef_rect.hpp"     // IWYU pragma: export
-#include "core/typedef_scalar.hpp"   // IWYU pragma: export
-#include "core/typedef_size.hpp"     // IWYU pragma: export
+#include <rowen/vision/core/typedef_line.hpp>     // IWYU pragma: export
+#include <rowen/vision/core/typedef_matrix.hpp>   // IWYU pragma: export
+#include <rowen/vision/core/typedef_point.hpp>    // IWYU pragma: export
+#include <rowen/vision/core/typedef_polygon.hpp>  // IWYU pragma: export
+#include <rowen/vision/core/typedef_rect.hpp>     // IWYU pragma: export
+#include <rowen/vision/core/typedef_scalar.hpp>   // IWYU pragma: export
+#include <rowen/vision/core/typedef_size.hpp>     // IWYU pragma: export
 
 namespace rs {
 

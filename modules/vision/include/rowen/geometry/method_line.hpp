@@ -1,6 +1,6 @@
 #pragma once
 
-#include "rowen/vision/type_traits.hpp"
+#include <rowen/vision/type_traits.hpp>
 
 namespace rs {
 namespace geometry {

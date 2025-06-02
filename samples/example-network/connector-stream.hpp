@@ -1,7 +1,6 @@
 #include <iostream>
+#include <rowen/network/connector_stream.hpp>
 #include <thread>
-
-#include "rowen/network/connector_stream.hpp"
 
 inline int run_tcp_client()
 {

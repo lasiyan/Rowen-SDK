@@ -1,7 +1,7 @@
-#include "rowen/vision/converter.hpp"
+#include <rowen/vision/converter.hpp>
 
 #ifndef rsdk_local_builder
-  #include "rowen_config.h"
+  #include <rowen_config.hpp>
 #endif
 
 #if defined(RS_VISION_CONVERTER_WITH_ARM_NEON)

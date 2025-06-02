@@ -1,11 +1,10 @@
 #include <iostream>
-
-#include "rowen/core.hpp"
-#include "rowen/geometry.hpp"
+#include <rowen/core.hpp>
+#include <rowen/geometry.hpp>
 
 #ifdef TESTING_GEOMETRY_OPENCV
-  #include "rowen/vision/drawable.hpp"
-  #include "rowen/vision/io_image.hpp"
+  #include <rowen/vision/drawable.hpp>
+  #include <rowen/vision/io_image.hpp>
 #endif
 
 void test_line(rs::Mat* img_ptr = nullptr)

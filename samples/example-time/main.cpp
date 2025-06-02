@@ -1,8 +1,7 @@
 #include <cstdarg>
 #include <iostream>
-
-#include "rowen/core.hpp"
-#include "rowen/core/time.hpp"
+#include <rowen/core.hpp>
+#include <rowen/core/time.hpp>
 
 void printf2(const char* format, ...)
 {

@@ -1,8 +1,7 @@
-#include "rowen/utils/threadPool.hpp"
-
 #include <algorithm>
 #include <exception>
 #include <iostream>
+#include <rowen/utils/threadPool.hpp>
 
 namespace rs {
 namespace utils {

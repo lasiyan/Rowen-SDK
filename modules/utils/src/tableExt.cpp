@@ -1,7 +1,5 @@
-#include "rowen/utils/table.hpp"
-
-//
 #include <algorithm>
+#include <rowen/utils/table.hpp>
 
 namespace rs {
 

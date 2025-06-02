@@ -1,7 +1,7 @@
 #ifndef RS_VISION_TYPE_TRAITS_CUDA_HPP
 #define RS_VISION_TYPE_TRAITS_CUDA_HPP
 
-#include "core/typedef_cuda_mat.hpp"  // IWYU pragma: export
+#include <rowen/vision/core/typedef_cuda_mat.hpp>  // IWYU pragma: export
 
 #if defined(RSDK_WITH_JETSON_UTILS)
 

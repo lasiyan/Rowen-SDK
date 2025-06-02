@@ -1,6 +1,6 @@
 #pragma once
 
-#include "template/logger_base.hpp"
+#include <rowen/logger/detail/logger_base.hpp>
 
 namespace rs {
 

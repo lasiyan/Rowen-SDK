@@ -1,6 +1,4 @@
 #if (__cplusplus < __cpp_lib_filesystem)
-  #include "rowen/utils/file.hpp"
-
   #include <dirent.h>
   #include <fcntl.h>
   #include <sys/stat.h>
@@ -9,6 +7,7 @@
   #include <cstdarg>
   #include <fstream>
   #include <iostream>
+  #include <rowen/utils/file.hpp>
 
 namespace rs {
 namespace utils {

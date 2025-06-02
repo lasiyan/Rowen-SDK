@@ -1,8 +1,7 @@
 #include <functional>
 #include <iostream>
+#include <rowen/network/listener_stream.hpp>
 #include <thread>
-
-#include "rowen/network/listener_stream.hpp"
 
 class TCPServer
 {

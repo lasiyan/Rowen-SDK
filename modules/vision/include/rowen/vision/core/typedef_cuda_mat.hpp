@@ -1,14 +1,13 @@
 #pragma once
 
-#include "typedef_matrix.hpp"
+#include <rowen/vision/core/typedef_matrix.hpp>
 
 #if defined(RSDK_WITH_JETSON_UTILS)
   #include <cuda_runtime.h>
+  #include <rowen_jetson/cudaRGB.h>  // from Jetson-utils
 
+  #include <rowen/vision/core/typedef_size.hpp>
   #include <stdexcept>
-
-  #include "rowen_jetson/cudaRGB.h"  // from Jetson-utils
-  #include "typedef_size.hpp"
 
   #define CUDA_DEBUG_LOG     false
   #define GPU_MAT_CUDASYNC() CUDA(cudaDeviceSynchronize())

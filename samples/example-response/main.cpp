@@ -1,9 +1,8 @@
 #include <cstdio>
 #include <memory>
 #include <mutex>
-
-#include "rowen/core/define/typedef_response.hpp"
-#include "rowen_3rd/jsoncpp.hpp"  // IWYU pragma: keep
+#include <rowen/core/response.hpp>
+#include <rowen_3rd/jsoncpp.hpp>  // IWYU pragma: keep
 
 class Foo
 {

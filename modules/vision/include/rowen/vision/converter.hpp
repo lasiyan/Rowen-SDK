@@ -1,7 +1,7 @@
 #ifndef RS_VISION_DRAW_CONVERTER_HPP
 #define RS_VISION_DRAW_CONVERTER_HPP
 
-#include "type_traits.hpp"
+#include <rowen/vision/type_traits.hpp>
 
 #if defined(__platform_arm64__)
   // #define RS_VISION_CONVERTER_WITH_ARM_NEON

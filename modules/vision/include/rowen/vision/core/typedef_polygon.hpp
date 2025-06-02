@@ -1,11 +1,10 @@
 #pragma once
 
 #include <optional>
+#include <rowen/geometry/common.hpp>
+#include <rowen/vision/core/typedef_point.hpp>
+#include <rowen/vision/core/typedef_rect.hpp>
 #include <vector>
-
-#include "rowen/geometry/common.hpp"
-#include "typedef_point.hpp"
-#include "typedef_rect.hpp"
 
 namespace rs {
 namespace vision {

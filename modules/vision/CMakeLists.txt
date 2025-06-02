@@ -1,16 +1,16 @@
 rs_add_library(
+    TYPE    SHARED
+    OUTPUT  TARGET
     SOURCES
         # src/frame_casting.cpp
         src/polygon_impl.cpp
         src/drawable_pango.cpp
         src/converter_bgr.cpp
     OUTPUT TARGET
-)
-
-target_link_libraries(${TARGET}
-    PUBLIC
-        pthread
-        ${PROJECT_NAME}_core
+    LINK_LIBS
+        PUBLIC
+            pthread
+            ${PROJECT_NAME}_core
 )
 
 

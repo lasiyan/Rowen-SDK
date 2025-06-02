@@ -1,10 +1,7 @@
+#include <rowen/core/time.hpp>
+#include <rowen/logger.hpp>
+#include <rowen/utils/threadPool.hpp>
 #include <sstream>
-
-#include "rowen/utils/threadPool.hpp"
-
-//
-#include "rowen/core/time.hpp"
-#include "rowen/logger.hpp"
 
 std::mutex job_creation_mutex;
 

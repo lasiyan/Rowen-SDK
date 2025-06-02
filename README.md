@@ -93,6 +93,7 @@ This SDK internally wraps and simplifies several popular open-source C++ librari
 
 - **jsoncpp**
 - **rapidjson**
+- **rapidxml**
 - **yaml-cpp**
 
 The required source (`.cpp`) and header (`.h`) files for these libraries are **included directly in this repository**.  

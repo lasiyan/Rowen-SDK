@@ -1,8 +1,7 @@
 #include <sys/un.h>
 
 #include <filesystem>
-
-#include "rowen/ipc/domain/listener.hpp"
+#include <rowen/ipc/domain/listener.hpp>
 
 namespace rs {
 namespace ipc {

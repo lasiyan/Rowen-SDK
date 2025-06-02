@@ -1,10 +1,10 @@
 #pragma once
 
+#include <rowen_3rd/yaml-cpp/yaml.h>  // IWYU pragma: export
+
 #include <iostream>
 #include <string>
 #include <type_traits>
-
-#include "yaml-cpp/yaml.h"  // IWYU pragma: export
 
 #if defined(__GNUC__) || defined(__clang__)
   #include <cxxabi.h>
