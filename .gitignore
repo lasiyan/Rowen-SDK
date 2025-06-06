@@ -21,7 +21,7 @@ test-*.hpp
 compile_commands.json
 
 # version file
-apps/version/version.h
+/modules/core/src/version.cpp
 
 # ignore local config files
 cmake/*.local

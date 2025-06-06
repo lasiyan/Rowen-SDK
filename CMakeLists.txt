@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(rowen VERSION 2.0.0)
+project(rowen VERSION 2.0.1)
 
 
 # SDK options definition

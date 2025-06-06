@@ -27,7 +27,7 @@ class FileLogger : public LoggerBase
     default_props_.using_micro_resolution = false;
     default_props_.raw_logging            = false;
     default_props_.ignore_level           = false;
-    default_props_.styled_logging         = true;
+    default_props_.styled_logging         = false;
   }
   ~FileLogger() = default;
 
