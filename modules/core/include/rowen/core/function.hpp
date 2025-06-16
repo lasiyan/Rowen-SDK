@@ -26,6 +26,21 @@ std::string format_buffer(const uint8_t* data, size_t size, size_t prefix = 5, s
 
 std::vector<std::string> split(const std::string& s, const std::vector<std::string>& delim);
 
+template <typename T>
+inline std::string join(const std::vector<T>& list, const std::string& delim)
+{
+  std::ostringstream oss;
+  for (size_t i = 0; i < list.size(); ++i)
+  {
+    if (i > 0)
+      oss << delim;
+    oss << list[i];
+  }
+  return oss.str();
+}
+
+std::string safe_filename(const std::string& fname, const bool allow_single_quote = false);
+
 bool containNonASCII(const std::string& str);
 
 // --- System --------------------------------------------------------------------

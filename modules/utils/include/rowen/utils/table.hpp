@@ -64,6 +64,8 @@ class Table
   void setTitle(const std::string& title);
   void setHeader(const Header& header);
   void setHeaders(const HeaderList& headers);
+  void setCtHeader(const Header& header);
+  void setCtHeaders(const HeaderList& headers);
   void setContent(const Content& content);
   void setContents(const ContentList& contents);
 
@@ -86,6 +88,7 @@ class Table
   // Helper
   static std::string alignText(const std::string& str, const size_t width, const Table::HeaderAlign align);
   static std::string repeatChar(const std::string_view ch, const size_t count);
+  static size_t      getDisplayWidth(const std::string& str);
 
  public:
   Table()                        = default;

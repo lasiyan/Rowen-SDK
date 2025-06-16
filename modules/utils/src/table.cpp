@@ -14,8 +14,9 @@ std::string Table::generator() const
   // Header 이름의 길이가 지정된 너비보다 길면, 너비를 늘린다.
   for (auto& h : headers_)
   {
-    if (h.name.length() + CELL_MARGIN > h.width)
-      h.width = h.name.length() + CELL_MARGIN;
+    size_t header_display_width = getDisplayWidth(h.name);
+    if (header_display_width + CELL_MARGIN > h.width)
+      h.width = header_display_width + CELL_MARGIN;
   }
 
   // --- make 관련 람다 함수 모음 ---------------------------------------------------
@@ -102,7 +103,7 @@ std::string Table::generator() const
 
 std::string Table::alignText(const std::string& str, const size_t width, const Table::HeaderAlign align)
 {
-  size_t len = str.length();
+  size_t len = getDisplayWidth(str);
   if (len >= width)
     return str;
 
@@ -126,6 +127,50 @@ std::string Table::repeatChar(const std::string_view ch, const size_t count)
   return s;
 }
 
+size_t Table::getDisplayWidth(const std::string& str)
+{
+  size_t width = 0;
+  size_t i     = 0;
+
+  while (i < str.length())
+  {
+    unsigned char c = str[i];
+
+    if (c < 0x80)
+    {
+      // ASCII 문자 (1바이트)
+      width += 1;
+      i += 1;
+    }
+    else if ((c & 0xE0) == 0xC0)
+    {
+      // 2바이트 UTF-8 문자
+      width += 1;  // 대부분의 2바이트 문자는 1칸
+      i += 2;
+    }
+    else if ((c & 0xF0) == 0xE0)
+    {
+      // 3바이트 UTF-8 문자 (한글, 한자 등)
+      width += 2;  // 동아시아 문자는 2칸
+      i += 3;
+    }
+    else if ((c & 0xF8) == 0xF0)
+    {
+      // 4바이트 UTF-8 문자
+      width += 2;  // 이모지 등은 2칸
+      i += 4;
+    }
+    else
+    {
+      // 잘못된 UTF-8 시퀀스
+      width += 1;
+      i += 1;
+    }
+  }
+
+  return width;
+}
+
 // --- Configurer ----------------------------------------------------------------
 
 void Table::setTitle(const std::string& title)
@@ -141,6 +186,19 @@ void Table::setHeader(const Header& header)
 void Table::setHeaders(const HeaderList& headers)
 {
   headers_ = headers;
+}
+
+void Table::setCtHeader(const Header& header)
+{
+  Header override_header = header;
+  override_header.align  = ALIGN_CENTER;  // 기본 정렬을 중앙으로 설정
+  headers_.push_back(override_header);
+}
+
+void Table::setCtHeaders(const HeaderList& headers)
+{
+  for (auto& h : headers)
+    setCtHeader(h);
 }
 
 void Table::setContent(const Content& content)
