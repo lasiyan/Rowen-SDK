@@ -9,7 +9,7 @@ std::string __platform_terminal_implement(bool sudo, const std::string& raw_cmd)
 {
   std::string cmd = raw_cmd;
   if (sudo)
-    cmd = format("echo '1' | sudo -S %s", cmd.c_str());
+    cmd = format("echo '1' | sudo -S -p \"\" %s", cmd.c_str());
   // printf("%s\n", cmd.c_str());
   std::string result;
   char        buffer[1024];

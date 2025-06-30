@@ -14,13 +14,11 @@ namespace vision {
 #ifdef RS_VISION_WITH_PANGO
 class PangoDrawable
 {
-  static constexpr auto DEFAULT_FONT   = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc";
-  static constexpr auto BASE_FONT_SIZE = 24;
-
- public:
-  static constexpr auto DEFAULT_THICK     = 2;
-  static constexpr auto DEFAULT_FONT_SIZE = 0.9;
-  static constexpr auto FILLED            = -1;
+  static constexpr auto     BASE_FONT_SIZE    = 24;
+  static constexpr auto     FILLED            = -1;
+  static inline std::string DEFAULT_FONT      = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc";
+  static inline auto        DEFAULT_FONT_SIZE = 0.9;
+  static inline auto        DEFAULT_THICK     = 2;
 
  public:
   /**
@@ -84,6 +82,14 @@ class PangoDrawable
   // --- Properties --------------------------------------------------------------
   void setFontFamily(CString& font_path);
   void setFontSizeRelative(bool relative_width = true);
+
+  // --- Default Properties ------------------------------------------------------
+  static void setDefaultFontFamily(CString& font_path) { DEFAULT_FONT = font_path; }
+  static void setDefaultFontSize(float font_size) { DEFAULT_FONT_SIZE = font_size; }
+  static void setDefaultThick(int thick) { DEFAULT_THICK = thick; }
+  static auto getDefaultFontFamily() { return DEFAULT_FONT; }
+  static auto getDefaultFontSize() { return DEFAULT_FONT_SIZE; }
+  static auto getDefaultThick() { return DEFAULT_THICK; }
 
  private:
   int  pangoFontSize(const float font_scale, const bool relative_width = true) const;
