@@ -103,6 +103,12 @@ class structResponse
    * @details Reset status and status message
    */
   virtual structResponse& reset() { return set(rssOK, rss_global_state_string(rssOK)); }
+
+  /**
+   * @brief Static usage
+   */
+  static structResponse pass(const std::string& log = "") { return structResponse(rssOK, log); }
+  static structResponse fail(const std::string& log = "") { return structResponse(rssProgressError, log); }
 };
 
 // --- response template ---------------------------------------------------------

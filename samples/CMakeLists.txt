@@ -3,6 +3,7 @@ add_subdirectory(example-jsoncpp)
 add_subdirectory(example-yaml)
 
 # core
+add_subdirectory(example-define)
 add_subdirectory(example-time)
 add_subdirectory(example-response)
 

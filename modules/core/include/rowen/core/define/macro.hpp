@@ -30,4 +30,13 @@
 #define RS_SNPRINTF(buf, fmt, ...)    ::snprintf(buf, sizeof(buf), fmt, __VA_ARGS__)
 #endif
 
+// --- RETURN_IF_MACRO -----------------------------------------------------------
+#ifndef RETURN_IF
+#define _rs__return_if_impl(cond, ...)            do { if ((cond)) { return __VA_ARGS__; } } while (0)
+#define RETURN_IF(...)                            _rs__return_if_impl(__VA_ARGS__)
+#endif
+#if !defined(return_if) && defined(RETURN_IF)     // Alias for RETURN_IF
+#define return_if(...)                            RETURN_IF(__VA_ARGS__)
+#endif
+
 // clang-format on
