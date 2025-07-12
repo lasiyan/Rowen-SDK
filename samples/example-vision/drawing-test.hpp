@@ -234,12 +234,18 @@ inline void run()
   printf("---Scalar ------------------------------------------------------\n");
   rs::Scalar c1 = 0xFFFFFF;
   rs::Scalar c2 = 0x10203040;
+  printf("c1: r(%.1f), g(%.1f), b(%.1f), a(%.1f)\n", c1.r, c1.g, c1.b, c1.a);
+  printf("c2: r(%.1f), g(%.1f), b(%.1f), a(%.1f)\n", c2.r, c2.g, c2.b, c2.a);
 
-  uint c3 = c1;
-  printf("c3: %02X\n", c3);
+  cv::Scalar cvC1(c1);  // from rs::Scalar to cv::Scalar
+  cv::Scalar cvC2(c2);
+  printf("cvC1: r(%.1f), g(%.1f), b(%.1f), a(%.1f)\n", cvC1[2], cvC1[1], cvC1[0], cvC1[3]);
+  printf("cvC2: r(%.1f), g(%.1f), b(%.1f), a(%.1f)\n", cvC2[2], cvC2[1], cvC2[0], cvC2[3]);
 
-  int c4 = c1;
-  printf("c4: %02X\n", c4);
+  rs::Scalar c3(cvC1);  // from cv::Scalar to rs::Scalar
+  rs::Scalar c4(cvC2);
+  printf("c3: r(%.1f), g(%.1f), b(%.1f), a(%.1f)\n", c3.r, c3.g, c3.b, c3.a);
+  printf("c4: r(%.1f), g(%.1f), b(%.1f), a(%.1f)\n", c4.r, c4.g, c4.b, c4.a);
 #endif
 
   for (const auto& i : name)

@@ -2,6 +2,11 @@
 
 #include <cstdint>
 
+#if __has_include(<opencv2/core/types.hpp>)
+  #include <opencv2/core/types.hpp>
+  #define RS_SCALAR_HAS_OPENCV
+#endif
+
 namespace rs {
 namespace vision {
 
@@ -13,14 +18,27 @@ class Scalar_
   Scalar_(T _b, T _g, T _r) : r(_r), g(_g), b(_b) { a = 255; }
   Scalar_(T _b, T _g, T _r, T _a) : r(_r), g(_g), b(_b), a(_a) {}
   Scalar_(const Scalar_<T>& c) : r(c.r), g(c.g), b(c.b), a(c.a) {}
-  Scalar_(uint32_t HEX_RGBA)
+  Scalar_(const uint32_t HEX_RGBA)
   {
     bool rgba = (HEX_RGBA & 0xFF000000) != 0;
     r         = (HEX_RGBA >> (rgba ? 24 : 16)) & 0xFF;
-    b         = (HEX_RGBA >> (rgba ? 16 : 8)) & 0xFF;
-    g         = (HEX_RGBA >> (rgba ? 8 : 0)) & 0xFF;
+    g         = (HEX_RGBA >> (rgba ? 16 : 8)) & 0xFF;
+    b         = (HEX_RGBA >> (rgba ? 8 : 0)) & 0xFF;
     a         = rgba ? (HEX_RGBA >> 0) & 0xFF : 255;
   }
+
+#ifdef RS_SCALAR_HAS_OPENCV
+  template <typename U>
+  Scalar_(const cv::Scalar_<U>& c) : r(static_cast<T>(c[2])), g(static_cast<T>(c[1])), b(static_cast<T>(c[0])), a(static_cast<T>(c[3]))
+  {
+  }
+
+  template <typename U>
+  operator cv::Scalar_<U>() const
+  {
+    return cv::Scalar_<U>(static_cast<U>(b), static_cast<U>(g), static_cast<U>(r), static_cast<U>(a));
+  }
+#endif
 
   operator uint32_t() const
   {

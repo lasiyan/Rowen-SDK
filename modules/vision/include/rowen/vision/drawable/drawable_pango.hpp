@@ -74,7 +74,7 @@ class PangoDrawable
 
  public:
   // --- OSD Helper --------------------------------------------------------------
-  void osdText(CString& str, int& space, float font_scale = DEFAULT_FONT_SIZE, int alpha = 255, int shadow = 2);
+  void osdText(CString& str, int& space, float font_scale = DEFAULT_FONT_SIZE, const Scalar& color = Scalar(255, 255, 255), int shadow = 2);
   void osdLabel(CString& str, const Rect& rect, const Scalar& color);
   void osdLabel(CString& str, const Rect2f& rect, const Scalar& color);
 

@@ -172,7 +172,7 @@ class drawable
   class osd
   {
    public:
-    RS_MATRIX static void setText(const T& img, CString& str, int& spacing, float size = MIDDLE_FONT, int thickness = DEFAULT_THICK)
+    RS_MATRIX static void setText(const T& img, CString& str, int& spacing, float size = MIDDLE_FONT, const Scalar& color = Scalar(255, 255, 255), int thickness = DEFAULT_THICK)
     {
       if (str.empty())
         return;
@@ -181,14 +181,14 @@ class drawable
       {
         assert_font_size(size);
         assert_thick(thickness, 2);
-        drawable_impl::opencv::setText(img, str, spacing, size, thickness);
+        drawable_impl::opencv::setText(img, str, spacing, size, color, thickness);
       }
 #if defined(RSDK_WITH_JETSON_UTILS)
       else if constexpr (std::is_same_v<T, GpuMat>)
       {
         assert_font_size_CUDA(size, img.size());
         assert_thick(thickness, 2);
-        drawable_impl::cuda::setText(img, str, spacing, size, thickness);
+        drawable_impl::cuda::setText(img, str, spacing, size, color, thickness);
       }
 #endif
     }

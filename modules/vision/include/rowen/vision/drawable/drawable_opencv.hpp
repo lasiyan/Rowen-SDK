@@ -2,6 +2,7 @@
 #define RS_VISION_DRAWABLE_DRAWABLE_OPENCV_HPP
 
 #include <opencv2/imgproc.hpp>
+#include <rowen/vision/drawable/detail/color_conversion.hpp>
 #include <rowen/vision/drawable/drawable_typedef.hpp>
 #include <rowen/vision/type_traits.hpp>
 #include <vector>
@@ -64,7 +65,7 @@ class opencv
   }
 
   // -- OSD ----------------------------------------------------------------------
-  static void setText(const Mat& img, CString& str, int& line, float size, int thick)
+  static void setText(const Mat& img, CString& str, int& line, float size, const Scalar& color, int thick)
   {
     constexpr int  default_thick = 2;
     constexpr int  base_h        = 720;
@@ -76,8 +77,8 @@ class opencv
     if (thick < default_thick)
       thick = default_thick;
 
-    text(img, str, Point(7, line + thick), Scalar(0, 0, 0), scale, thick, font);
-    text(img, str, Point(5, line), Scalar(255, 255, 255), scale, thick, font);
+    text(img, str, Point(7, line + thick), ColorConversion::ContrastColor(color), scale, thick, font);
+    text(img, str, Point(5, line), color, scale, thick, font);
 
     int  baseline = 0;
     auto tsize    = getTextSize(str, scale, thick, font, &baseline);
@@ -120,9 +121,7 @@ class opencv
     rectangle(img, label, color, -1);
 
     // Adaptive text color
-    const auto luminance  = (color.r * 0.299 + color.g * 0.587 + color.b * 0.114);
-    const auto threshold  = 127;
-    auto       font_color = luminance > threshold ? Scalar(0, 0, 0) : Scalar(255, 255, 255);
+    auto font_color = ColorConversion::ContrastColor(color);
 
     label.y += (++tsize.height);
     text(img, str, label.tl(), font_color, scale, thick, fontface);

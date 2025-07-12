@@ -5,6 +5,7 @@
 #include <rowen_jetson/cudaFont.h>
 
 #include <mutex>
+#include <rowen/vision/drawable/detail/color_conversion.hpp>
 #include <rowen/vision/drawable/drawable_typedef.hpp>
 #include <rowen/vision/type_traits.hpp>
 #include <rowen/vision/type_traits_cuda.hpp>
@@ -113,10 +114,10 @@ class cuda
   }
 
   // -- OSD ----------------------------------------------------------------------
-  static void setText(const GpuMat& img, CString& str, int& line, float size, int thick)
+  static void setText(const GpuMat& img, CString& str, int& line, float size, const Scalar& color, int thick)
   {
-    text(img, str, Point(5, line + thick), Scalar(0, 0, 0), size);
-    text(img, str, Point(7, line), Scalar(255, 255, 255), size);
+    text(img, str, Point(5, line + thick), ColorConversion::ContrastColor(color), size);
+    text(img, str, Point(7, line), color, size);
 
     auto tsize = getTextSize(str, size);
     line += tsize.height;
@@ -155,10 +156,9 @@ class cuda
     rectangle(img, label, color, -1);
 
     // Adaptive text color
-    const auto luminance  = (color.r * 0.299 + color.g * 0.587 + color.b * 0.114);
-    const auto threshold  = 127;
-    auto       font_color = luminance > threshold ? Scalar(0, 0, 0) : Scalar(255, 255, 255);
+    auto font_color = ColorConversion::ContrastColor(color);
 
+    label.y += (++tsize.height);
     text(img, str, label.tl(), font_color, font_size);
   }
 

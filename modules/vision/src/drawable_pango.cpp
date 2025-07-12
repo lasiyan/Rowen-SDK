@@ -1,5 +1,6 @@
 #include <rowen/core/function.hpp>
 #include <rowen/vision/converter.hpp>
+#include <rowen/vision/drawable/detail/color_conversion.hpp>
 #include <rowen/vision/drawable/drawable_pango.hpp>
 
 namespace rs {
@@ -300,11 +301,11 @@ void PangoDrawable::centerText(CString& str, const int pos_y, const Text& props,
 }
 
 // --- OSD Helper ----------------------------------------------------------------
-void PangoDrawable::osdText(CString& str, int& space, float size, int alpha, int shadow)
+void PangoDrawable::osdText(CString& str, int& space, float size, const Scalar& color, int shadow)
 {
   Size text_size;
-  text(str, Point(5 + shadow, space + shadow), Scalar(0, 0, 0, alpha), size, &text_size);
-  text(str, Point(5, space), Scalar(255, 255, 255, alpha), size);
+  text(str, Point(5 + shadow, space + shadow), ColorConversion::ContrastColor(color), size, &text_size);
+  text(str, Point(5, space), color, size);
   space += text_size.height;
 }
 
@@ -337,8 +338,7 @@ void PangoDrawable::osdLabel(CString& str, const Rect& rect, const Scalar& color
   Point text_point(label.x + TEXT_X_MARGIN, label.y);
 
   // 텍스트 색상 설정 (배경색에 따라 텍스트 색상을 변경)
-  const auto luminance  = (color.r * 0.299 + color.g * 0.587 + color.b * 0.114);
-  auto       text_color = luminance > 127 ? Scalar(0, 0, 0, color.a) : Scalar(255, 255, 255, color.a);
+  auto text_color = ColorConversion::ContrastColor(color);
 
   // 텍스트 그리기
   text(str, text_point, text_color, TEXT_FONT_SIZE);
